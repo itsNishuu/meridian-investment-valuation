@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Meridian | Investment Valuation Lab</title><link rel="stylesheet" href="./shared/style.css"></head>
+<body data-project="meridian" data-standalone="true"><div class="wrap">
+<header class="top"><span class="brand">MERIDIAN / VALUATION LAB</span><nav class="nav"><a class="current" href="./">Meridian workbench</a></nav></header>
+<section class="hero"><div class="eyebrow">Finance casework 03 / Investment valuation</div><h1>Build the valuation. Challenge every assumption.</h1><p>Five-year financial forecasting, unlevered DCF, trading comparables, precedent transaction cross-checks, valuation sensitivity and an exportable committee-style memo.</p></section>
+<div class="info">EDUCATIONAL SANDBOX · All companies, peer multiples, transaction benchmarks and inputs are synthetic. Not a fairness opinion, financial advice or actual investment banking mandate.</div><div class="space"></div>
+<div class="grid">
+<section class="card"><h2>Valuation assumptions</h2>
+<label for="company">Select fictional company</label><select id="company"></select><div class="space"></div>
+<div class="formgrid">
+<div><label for="revenue">Base-year revenue (₹ crore)</label><input type="number" id="revenue" min="1" step="10"></div>
+<div><label for="shares">Diluted shares (crore)</label><input type="number" id="shares" min=".01" step=".1"></div>
+<div><label for="growth1">Year 1 sales growth (%)</label><input type="number" id="growth1" step=".5"></div>
+<div><label for="growth5">Year 5 sales growth (%)</label><input type="number" id="growth5" step=".5"></div>
+<div><label for="margin1">Year 1 EBIT margin (%)</label><input type="number" id="margin1" step=".5"></div>
+<div><label for="margin5">Year 5 EBIT margin (%)</label><input type="number" id="margin5" step=".5"></div>
+<div><label for="taxRate">Tax rate (%)</label><input type="number" id="taxRate" step=".5"></div>
+<div><label for="daPct">D&A as % of sales</label><input type="number" id="daPct" step=".1"></div>
+<div><label for="capexPct">Capex as % of sales</label><input type="number" id="capexPct" step=".1"></div>
+<div><label for="nwcPct">NWC as % incremental sales</label><input type="number" id="nwcPct" step=".5"></div>
+<div><label for="wacc">Discount rate / WACC (%)</label><input type="number" id="wacc" step=".25"></div>
+<div><label for="terminalGrowth">Perpetual growth (%)</label><input type="number" id="terminalGrowth" step=".25"></div>
+<div><label for="debt">Interest-bearing debt (₹ crore)</label><input type="number" id="debt" min="0" step="5"></div>
+<div><label for="cash">Excess cash (₹ crore)</label><input type="number" id="cash" min="0" step="5"></div>
+</div><div class="controls"><button id="run">Revalue company</button><button class="secondary" id="reset">Reset assumptions</button></div><div class="alert" id="err" hidden></div>
+<div class="space"></div><p class="help">Enterprise to equity bridge: enterprise value − debt + excess cash. Price per share = equity value ÷ diluted shares. Sensitivity varies WACC and perpetual growth independently.</p>
+</section>
+<section class="card"><h2>Valuation overview</h2><div class="statrow" style="grid-template-columns:repeat(2,1fr)">
+<div class="stat"><div class="label">DCF implied share value</div><div class="metric" id="share">—</div><div class="sub">₹ / diluted share</div></div>
+<div class="stat"><div class="label">Enterprise value</div><div class="metric" id="enterprise">—</div><div class="sub">₹ crore</div></div>
+<div class="stat"><div class="label">Trading-comps median</div><div class="metric" id="trading">—</div><div class="sub">₹ per share</div></div>
+<div class="stat"><div class="label">Transaction-comps median</div><div class="metric" id="precedents">—</div><div class="sub">₹ per share</div></div>
+</div>
+<h3>Revenue forecast (₹ crore)</h3><svg class="figure" id="revenuePath" aria-label="Five-year hypothetical revenue forecast line" role="img"></svg>
+<h3>Cash-flow forecast (₹ crore)</h3><svg class="figure" id="fcfPath" aria-label="Five-year hypothetical cash flow forecast line" role="img"></svg>
+<h3>Valuation build</h3><div class="tablewrap"><table class="data"><tbody><tr><th>PV of five-year cash flows</th><td id="pvFcf">—</td></tr><tr><th>PV of terminal value</th><td id="pvTerminal">—</td></tr><tr><th>Net debt</th><td id="netDebt">—</td></tr><tr><th>Terminal value as % of EV</th><td id="tvShare">—</td></tr></tbody></table></div>
+</section>
+<section class="card span2"><div class="row"><h2>Five-year forecast</h2><button id="downloadCsv" class="secondary">Export financial model .csv</button></div><div class="tablewrap"><table class="data"><thead><tr><th>Fiscal year</th><th>Revenue</th><th>Growth</th><th>EBIT margin</th><th>EBITDA</th><th>UFCF</th><th>PV of UFCF</th></tr></thead><tbody id="forecast"></tbody></table></div></section>
+<section class="card"><h2>Valuation sensitivity</h2><p class="help">Implied ₹ per share by WACC (rows) and perpetual growth (columns). The highlighted cell is the base case.</p><div class="tablewrap"><table class="data heatmap"><thead id="sensitivityHead"></thead><tbody id="sensitivityBody"></tbody></table></div><div class="space"></div><div id="alerts" class="help"></div></section>
+<section class="card"><h2>Trading and transaction comparables</h2><p class="help">The multiples are illustrative, not live peer observations. EV / next-year EBITDA drives these independent valuation cross-checks.</p><h3>Trading peers: EV / forward EBITDA</h3><div id="peerRows"></div><h3>Precedent transactions: EV / forward EBITDA</h3><div id="transactionRows"></div><div class="space"></div><div class="info">A real deal model would additionally validate audited financials, normalize EBITDA, source comparable transactions, estimate WACC, test acquisition premia and account for transaction-specific adjustments.</div></section>
+<section class="card span2"><div class="row"><h2>Investment committee style memo</h2><button id="downloadMemo" class="secondary">Export memo .txt</button></div><div id="memo" class="report"></div></section>
+</div><footer class="foot">Built as a reproducible financial-modelling demonstration. No real securities, financial statements, securities recommendations or client work are represented.</footer>
+</div><script type="module" src="./app.js"></script><script type="module" src="./shared/shell.js"></script></body></html>
