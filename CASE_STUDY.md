@@ -1,32 +1,37 @@
-# Meridian — Investment Valuation Lab
+# Meridian — case study
 
-**Domain:** Financial modelling, corporate valuation, investment-banking research  
-**Portfolio category:** Independent educational case study, not an actual M&A or investment banking mandate  
-**Dataset:** Three entirely synthetic companies, peer multiples, capital structures and forecast assumptions.
+**Domain:** financial modelling, corporate valuation, investment-banking analysis
+**Category:** independent educational project, not a transaction mandate
+**Data:** three fictional companies with invented peers, precedent deals, capital structures and forecasts
 
 ## The problem
 
-Company valuation requires a disciplined operating forecast and clear links from assumptions to cash flow, enterprise value, equity value and valuation sensitivity. It is rarely sufficient to display one unqualified share price.
+A single DCF price is the least useful output of a valuation. Reviewers want to know what each method supports, which assumptions drive the answer, whether the terminal value is doing most of the work, and whether the methods agree with each other. They also expect the work to follow the conventions they read every day.
 
-## The demonstrator
+## What I built
 
-- Editable five-year assumptions for sales growth, EBIT margins, tax, depreciation, capex, working capital, leverage and share capital.
-- Five-year unlevered free-cash-flow forecast with end-of-year discounting and Gordon-growth terminal value.
-- DCF enterprise-to-equity value bridge and ₹ per-share output.
-- Sensitivity across five discount rates and five long-term growth assumptions.
-- Fictional EV / forward EBITDA trading peers and hypothetical precedent transactions as valuation cross-checks.
-- Exportable forecast CSV and investment-committee-style memo.
+- A five-year unlevered DCF with Gordon-growth or exit-multiple terminal value and optional mid-year discounting.
+- Bear, base and bull scenarios applied as overlays on editable base-case inputs.
+- A CAPM WACC build that can feed the model.
+- Two sensitivity grids, a tornado chart and a football field that pulls every method onto one axis.
+- Trading comparables and precedent transactions with implied value per share for each observation.
+- A linked three-statement model on the same forecast, with a balance check.
+- Automatic review points, for example when terminal value exceeds 75% of EV or when the two terminal methods disagree by more than 25%.
+- A committee memo generated from the live model.
 
-## The reviewer should examine
+## What to look at
 
-1. Select Helios Precision Systems and inspect the five forecast rows.
-2. Increase WACC by 1pp; confirm DCF equity value decreases.
-3. Increase long-term growth by 0.5pp; confirm DCF equity value increases.
-4. Compare the mid-point of the WACC/g sensitivity matrix to the base DCF result.
-5. Review all supporting caveats and inspect `tests/engines.test.mjs`.
+1. On **Summary** for Helios, read the first review point: the perpetual-growth terminal value implies about 6.8× EBITDA against a peer median above 10×. The football field shows the same gap.
+2. Switch to **Bear** and **Bull** and watch every view update.
+3. On **Model**, raise WACC by one point and confirm the price falls; press **Use this WACC** to adopt the CAPM figure.
+4. On **Sensitivity**, check that the outlined grid cell equals the base price, and see which driver tops the tornado.
+5. On **Statements**, change the dividend payout and confirm the balance sheet still balances.
+6. Run `npm test`.
 
-## What it proves
+## What it shows
 
-Competence in the mechanics and communication of forecast-based valuation, sensitivity analysis and transaction-style analyst documentation. Appropriate portfolio evidence for Valuation Analyst, Financial Modelling Analyst and Investment Banking Analyst (transition) applications.
+Command of forecast-driven valuation, the links between the three statements, sensitivity analysis and the presentation conventions of banking work. Relevant to valuation, financial modelling, FP&A and investment-banking analyst roles.
 
-**Does not prove:** a real transaction mandate, audited three-statement financial model, certified valuation, validated precedent-transactions dataset, deal execution, investment performance, investment-banking associate tenure or real-world fairness analysis.
+## What it does not show
+
+A real mandate, audited or normalised financials, observed betas or market data, a verified comparables set, deal execution, or a fairness opinion.
