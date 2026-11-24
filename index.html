@@ -8,6 +8,7 @@
   <link rel="preload" href="fonts/fira-sans-400.woff" as="font" type="font/woff" crossorigin>
   <link rel="stylesheet" href="css/app.css">
   <script type="module" src="src/app.js"></script>
+  <script type="module" src="src/welcome.js"></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to the valuation</a>
@@ -21,10 +22,15 @@
           <label><input type="radio" name="scenario" value="bull"><span>Bull</span></label>
         </div>
         <label class="check"><input type="checkbox" id="midYear"> Mid-year discounting</label>
+        <a class="guide-link" href="guide.html">New here? Start here</a>
       </div>
     </div>
     <nav class="companies" aria-label="Company under review" id="companies"></nav>
   </header>
+  <div class="welcome" id="welcome" role="region" aria-label="Introduction" hidden>
+    <span>New to company valuation? <a href="guide.html">Read the five-minute plain-English guide</a> before you start.</span>
+    <button type="button">Dismiss</button>
+  </div>
   <nav class="tabs" aria-label="Sections">
     <a data-nav href="#summary">Summary</a>
     <a data-nav href="#model">Model</a>

@@ -169,3 +169,18 @@ table.heat { border-collapse: separate; border-spacing: 3px; width: 100%; }
   .companies button { min-width: 150px; padding: 8px 12px 10px; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+/* First-visit pointer to the plain-English guide */
+.guide-link { white-space: nowrap; font-weight: 700; font-size: 14px; text-decoration: none; color: #0f2645;
+  border: 1px solid currentColor; border-radius: 999px; padding: 6px 12px; }
+.guide-link:hover { background: #0f2645; color: #fff; }
+.welcome { display: flex; align-items: center; justify-content: center; gap: 10px 16px; flex-wrap: wrap; padding: 10px clamp(14px, 3vw, 40px);
+  background: #e4e9f1; border-bottom: 1px solid #d3d9e2; font-size: 14.5px; color: #142033; text-align: center; }
+.welcome[hidden] { display: none; }
+.welcome a { font-weight: 700; color: #0f2645; }
+.welcome button { font: inherit; font-size: 13px; background: transparent; border: 1px solid #d3d9e2; border-radius: 999px;
+  padding: 3px 10px; cursor: pointer; color: #5a6880; }
+.welcome button:hover { color: #142033; border-color: #5a6880; }
+@media print { .welcome, .guide-link { display: none !important; } }
+.bar .guide-link { color: #fff; border-color: #ffffff80; }
+.bar .guide-link:hover { background: #fff; color: #0f2645; }
