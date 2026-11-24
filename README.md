@@ -1,5 +1,7 @@
 # Meridian — valuation desk
 
+**Live demo:** https://meridian-investment-valuation.vercel.app
+
 An equity valuation workbench laid out like a bank pitch book. It values three fictional Indian mid-caps with a five-year unlevered DCF, trading comparables and precedent transactions, then shows how sure the answer is.
 
 ![Summary view: football field of value per share by method and the EV-to-equity bridge](docs/summary.png)
