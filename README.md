@@ -2,7 +2,9 @@
 
 **Live demo:** https://meridian-investment-valuation.vercel.app
 
-**New to the subject?** Start with the [plain-English guide](https://meridian-investment-valuation.vercel.app/guide.html) ([source](guide.html)): what Meridian does, a tab-by-tab tour and a glossary, written for readers with no finance background.
+**New to the subject?** Start with the [plain-English guide](https://meridian-investment-valuation.vercel.app/guide.html) ([source](guide.html)): live figures from the model, a tab-by-tab tour, an exploration checklist, a capability checklist, common questions and a glossary, written for readers with no finance background.
+
+**Excel model:** [`excel/Meridian_Valuation_Model.xlsx`](excel/README.md) is the same valuation as a live Excel model, with 776 formulas, dropdown case selection, `SUMPRODUCT` sensitivity grids, a football-field chart and linked three statements. It is recalculated and checked against this app in all 18 company × scenario × discounting cases: 1,998 values, 0 mismatches.
 
 An equity valuation workbench laid out like a bank pitch book. It values three fictional Indian mid-caps with a five-year unlevered DCF, trading comparables and precedent transactions, then shows how sure the answer is.
 
@@ -55,7 +57,7 @@ fonts/              Fira Sans (SIL Open Font Licence)
 
 ## Tests
 
-11 tests, including: the forecast and discounting maths; EV/equity/per-share reconciliation; Gordon and exit-multiple terminal values round-tripping through the implied multiple and implied growth; value falling with WACC and rising with growth; the CAPM build landing within 0.3 points of each company's WACC; bear < base < bull for every company; sensitivity grids centred on the base case; every tornado bar straddling the base value; and the linked statements balancing and reconciling cash in every year.
+12 engine tests, including: the forecast and discounting maths; EV/equity/per-share reconciliation; Gordon and exit-multiple terminal values round-tripping through the implied multiple and implied growth; value falling with WACC and rising with growth; the CAPM build landing within 0.3 points of each company's WACC; bear < base < bull for every company; sensitivity grids centred on the base case; every tornado bar straddling the base value; the linked statements balancing and reconciling cash in every year; and the exit multiple rounding half-up as Excel does (a bug found by the Excel reconciliation).
 
 ---
 

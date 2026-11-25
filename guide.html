@@ -4,128 +4,308 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Start here: Meridian explained simply</title>
-  <meta name="description" content="A plain-English guide to Meridian, a company valuation case study, for readers with no finance background.">
+  <meta name="description" content="A plain-English briefing on Meridian, an equity valuation case study: what it does, a guided tour, an exploration checklist, how it is built and a glossary.">
+  <meta name="theme-color" content="#081729">
   <link rel="stylesheet" href="css/app.css">
   <link rel="stylesheet" href="css/guide.css">
+  <script type="module" src="src/briefing.js"></script>
 </head>
-<body class="g-body">
-  <header class="g-top">
-    <a class="g-brand" href="index.html">Meridian<small>Start here</small></a>
-    <a class="g-open" href="index.html">Open the app →</a>
+<body class="b-body">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="b-top">
+    <a class="b-brand" href="index.html">Meridian<small>Start here</small></a>
+    <nav class="b-topnav" aria-label="Guide highlights">
+      <a href="#tour">Tour</a><a href="#checklist">Checklist</a><a href="#build">Under the hood</a><a href="#faq">Questions</a>
+    </nav>
+    <a class="b-open" href="index.html">Open the app <span aria-hidden="true">→</span></a>
   </header>
-  <main class="g-wrap">
-    <section class="g-hero" aria-labelledby="g-title">
-      <p class="g-kicker">Start here · a five-minute guide for anyone</p>
-      <h1 id="g-title">What is Meridian?</h1>
-      <p class="g-lead">Meridian works out what a company is worth. It values three fictional Indian mid-sized companies in several different ways, shows where the methods agree and disagree, and points out which assumptions the answer depends on most.</p>
-      <dl class="g-facts">
-        <div><dt>Who uses tools like this</dt><dd>Investment banking, equity research, corporate finance and FP&amp;A analysts</dd></div>
-        <div><dt>The data</dt><dd>Three fictional companies with invented peers and deals</dd></div>
-        <div><dt>Time to explore</dt><dd>About five minutes</dd></div>
-      </dl>
-      <nav aria-label="On this page">
-        <ul class="g-toc">
-          <li><a href="#problem">The problem</a></li>
-          <li><a href="#story">The story</a></li>
-          <li><a href="#tour">Guided tour</a></li>
-          <li><a href="#words">Key words</a></li>
-          <li><a href="#scope">What it shows</a></li>
-        </ul>
+
+  <main id="main">
+    <section class="b-hero" aria-labelledby="g-title">
+      <div class="b-motif"><svg viewBox="0 0 640 360" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+  <g fill="currentColor"><rect x="200" y="50" width="200" height="22" opacity=".30"/><rect x="330" y="105" width="170" height="22" opacity=".24"/><rect x="250" y="160" width="190" height="22" opacity=".20"/><rect x="390" y="215" width="130" height="22" opacity=".16"/><rect x="110" y="270" width="380" height="22" opacity=".14"/></g>
+  <line x1="300" y1="20" x2="300" y2="330" stroke="var(--gold-2)" stroke-width="2" opacity=".8"/>
+</svg></div>
+      <div class="b-hero-in">
+        <div class="b-hero-copy">
+          <p class="b-kicker">Start here · The Meridian briefing</p>
+          <h1 id="g-title">What is Meridian?</h1>
+          <p class="b-lead">Meridian works out what a company is worth. It values three fictional Indian mid-sized companies in several different ways, shows where the methods agree and disagree, and points out which assumptions the answer depends on most.</p>
+          <div class="b-hero-cta">
+            <a class="b-btn" href="index.html">Open Meridian</a>
+            <a class="b-btn b-ghost" href="#tour">Take the five-minute tour</a>
+          </div>
+        </div>
+        <aside class="b-live" data-live data-state="loading" aria-labelledby="live-title">
+          <p class="b-live-k" id="live-title"><span class="b-pulse" aria-hidden="true"></span>Live from the model</p>
+          <div class="b-live-figs" aria-live="polite">
+            <div class="b-fig"><span class="b-sk"></span><span class="b-sk b-sk-s"></span></div>
+            <div class="b-fig"><span class="b-sk"></span><span class="b-sk b-sk-s"></span></div>
+            <div class="b-fig"><span class="b-sk"></span><span class="b-sk b-sk-s"></span></div>
+            <div class="b-fig"><span class="b-sk"></span><span class="b-sk b-sk-s"></span></div>
+          </div>
+          <p class="b-live-note">Computed in your browser by the same engine the app runs, for Helios Precision Systems in the base case.</p>
+          <noscript><p class="b-live-note">Turn on JavaScript to see live figures, or <a href="index.html">open the app</a>.</p></noscript>
+        </aside>
+      </div>
+      <dl class="b-facts"><div><dt>Who uses tools like this</dt><dd>Investment banking, equity research, corporate finance and FP&amp;A analysts</dd></div><div><dt>The data</dt><dd>Three fictional companies with invented peers and deals</dd></div><div><dt>Time to explore</dt><dd>About five minutes</dd></div><div><dt>Built with</dt><dd>Plain JavaScript and SVG. No dependencies, no tracking</dd></div></dl>
+    </section>
+
+    <div class="b-layout">
+      <nav class="b-side" aria-label="On this page">
+        <p class="b-side-k">On this page</p>
+        <ol><li><a href="#problem"><span>01</span>The problem</a></li><li><a href="#story"><span>02</span>The story</a></li><li><a href="#tour"><span>03</span>Guided tour</a></li><li><a href="#checklist"><span>04</span>Checklist</a></li><li><a href="#build"><span>05</span>Under the hood</a></li><li><a href="#words"><span>06</span>Key words</a></li><li><a href="#faq"><span>07</span>Questions</a></li><li><a href="#scope"><span>08</span>What it shows</a></li></ol>
+        <div class="b-side-meter" aria-hidden="true"><span>Checklist</span><b><span data-done>0</span>/9</b><i class="b-bar"><i data-bar></i></i></div>
       </nav>
-    </section>
 
-    <section class="g-sec" id="problem" aria-labelledby="h-problem">
-      <h2 id="h-problem">The problem it solves</h2>
-      <p>If you were buying a local business, you would ask two things: how much profit will it make in future, and what have similar businesses sold for? Valuing a company is the same idea on a larger scale.</p>
-      <p>Analysts use <strong>several methods</strong> because each one has blind spots, and a single "the share is worth ₹X" hides how fragile that number is. A small change in one assumption can move it a lot. Meridian puts every method on one chart and shows exactly how sensitive the answer is.</p>
-    </section>
+      <div class="b-content">
+        <section class="b-sec" id="problem" aria-labelledby="h-problem">
+          <header class="b-sec-h"><span class="b-no" aria-hidden="true">01</span><h2 id="h-problem">The problem it solves</h2></header>
+          <p>If you were buying a local business, you would ask two things: how much profit will it make in future, and what have similar businesses sold for? Valuing a company is the same idea on a larger scale.</p><p>Analysts use <strong>several methods</strong> because each one has blind spots, and a single &ldquo;the share is worth ₹X&rdquo; hides how fragile that number is. A small change in one assumption can move it a lot. Meridian puts every method on one chart and shows exactly how sensitive the answer is.</p>
+        </section>
 
-    <section class="g-sec" id="story" aria-labelledby="h-story">
-      <h2 id="h-story">The story inside the app</h2>
-      <div class="g-story"><p>Three fictional companies: Helios Precision Systems (industrial components), Saffron Food Packaging (consumer packaging) and Nexa Mobility Components (electric-vehicle supply chain). Each has a five-year forecast, a set of invented similar companies and past takeover deals. Pick a company at the top of the page, and switch between Bear, Base and Bull views of the future.</p></div>
-    </section>
+        <section class="b-sec" id="story" aria-labelledby="h-story">
+          <header class="b-sec-h"><span class="b-no" aria-hidden="true">02</span><h2 id="h-story">The story inside the app</h2></header>
+          <blockquote class="b-story reveal"><p>Three fictional companies: Helios Precision Systems (industrial components), Saffron Food Packaging (consumer packaging) and Nexa Mobility Components (electric-vehicle supply chain). Each has a five-year forecast, a set of invented similar companies and past takeover deals. Pick a company at the top of the page, and switch between Bear, Base and Bull views of the future.</p></blockquote>
+        </section>
 
-    <section class="g-sec" id="tour" aria-labelledby="h-tour">
-      <h2 id="h-tour">A guided tour, one tab at a time</h2>
-      <p>Each step below matches a tab along the top of the app. Read the step, open the tab, then try the suggested change.</p>
-      <ol class="g-tour">
-      <li class="g-stop">
-        <span class="g-num" aria-hidden="true">1</span>
-        <h3>Summary<span>What is it worth, by each method?</span></h3>
-        <p>The “football field” chart: each bar is the range of value per share that one method supports. Where the bars overlap, the methods agree. Below it: the walk from the value of the whole business to the value of one share, and review points the model raises by itself.</p>
-        <p class="g-try"><strong>Try this:</strong> With Helios selected, read the first review point: one method implies a much lower price-to-profit multiple than similar companies trade at.</p>
-        <a class="g-go" href="index.html#summary">Open Summary →</a>
-      </li>
-      <li class="g-stop">
-        <span class="g-num" aria-hidden="true">2</span>
-        <h3>Model<span>Where does the number come from?</span></h3>
-        <p>The forecast: sales, profit, investment and cash for five years, each converted into today&#x27;s money. Blue numbers are assumptions you can change; black numbers are calculated, the same convention banks use.</p>
-        <p class="g-try"><strong>Try this:</strong> Raise WACC (the return investors require) by one point and watch the value per share fall.</p>
-        <a class="g-go" href="index.html#model">Open Model →</a>
-      </li>
-      <li class="g-stop">
-        <span class="g-num" aria-hidden="true">3</span>
-        <h3>Sensitivity<span>How sure is the answer?</span></h3>
-        <p>Tables showing the value per share as two key assumptions change together, and a “tornado” chart ranking which single assumption moves the answer most.</p>
-        <p class="g-try"><strong>Try this:</strong> Check that the outlined cell equals the base-case price, then see which assumption sits at the top of the tornado.</p>
-        <a class="g-go" href="index.html#sensitivity">Open Sensitivity →</a>
-      </li>
-      <li class="g-stop">
-        <span class="g-num" aria-hidden="true">4</span>
-        <h3>Comparables<span>What do similar companies suggest?</span></h3>
-        <p>What similar listed companies and past takeover deals imply about value, using price-to-profit multiples.</p>
-        <p class="g-try"><strong>Try this:</strong> Compare the listed peers with the takeover deals. Deals are usually priced higher, because a buyer pays extra for control.</p>
-        <a class="g-go" href="index.html#comps">Open Comparables →</a>
-      </li>
-      <li class="g-stop">
-        <span class="g-num" aria-hidden="true">5</span>
-        <h3>Statements<span>Do the accounts hang together?</span></h3>
-        <p>The three core financial statements (income statement, cash flow statement and balance sheet) built from the same forecast, with a check that the balance sheet balances every year.</p>
-        <p class="g-try"><strong>Try this:</strong> Change the dividend payout and confirm the balance sheet still balances.</p>
-        <a class="g-go" href="index.html#statements">Open Statements →</a>
-      </li>
-      <li class="g-stop">
-        <span class="g-num" aria-hidden="true">6</span>
-        <h3>Memo<span>What would the committee read?</span></h3>
-        <p>A short investment committee note written from the live model.</p>
-        <p class="g-try"><strong>Try this:</strong> Switch to Bear or Bull at the top of the page, then reread the memo.</p>
-        <a class="g-go" href="index.html#memo">Open Memo →</a>
-      </li>
-      </ol>
-    </section>
+        <section class="b-sec" id="tour" aria-labelledby="h-tour">
+          <header class="b-sec-h"><span class="b-no" aria-hidden="true">03</span><h2 id="h-tour">A guided tour, one tab at a time</h2></header>
+          <p>Each step below matches a tab along the top of the app. Read the step, open the tab, then try the suggested change.</p>
+          <ol class="b-tour">
+        <li class="b-stop reveal">
+          <span class="b-stop-no" aria-hidden="true">01</span>
+          <div class="b-stop-body">
+            <p class="b-stop-k">Tab 1 of 6</p>
+            <h3>Summary<span>What is it worth, by each method?</span></h3>
+            <p>The &ldquo;football field&rdquo; chart: each bar is the range of value per share that one method supports. Where the bars overlap, the methods agree. Below it: the walk from the value of the whole business to the value of one share, and review points the model raises by itself.</p>
+            <p class="b-try"><strong>Try this</strong>With Helios selected, read the first review point: one method implies a much lower price-to-profit multiple than similar companies trade at.</p>
+            <a class="b-go" href="index.html#summary">Open Summary <span aria-hidden="true">→</span></a>
+          </div>
+        </li>
+        <li class="b-stop reveal">
+          <span class="b-stop-no" aria-hidden="true">02</span>
+          <div class="b-stop-body">
+            <p class="b-stop-k">Tab 2 of 6</p>
+            <h3>Model<span>Where does the number come from?</span></h3>
+            <p>The forecast: sales, profit, investment and cash for five years, each converted into today&#x27;s money. Blue numbers are assumptions you can change; black numbers are calculated, the same convention banks use.</p>
+            <p class="b-try"><strong>Try this</strong>Raise WACC (the return investors require) by one point and watch the value per share fall.</p>
+            <a class="b-go" href="index.html#model">Open Model <span aria-hidden="true">→</span></a>
+          </div>
+        </li>
+        <li class="b-stop reveal">
+          <span class="b-stop-no" aria-hidden="true">03</span>
+          <div class="b-stop-body">
+            <p class="b-stop-k">Tab 3 of 6</p>
+            <h3>Sensitivity<span>How sure is the answer?</span></h3>
+            <p>Tables showing the value per share as two key assumptions change together, and a &ldquo;tornado&rdquo; chart ranking which single assumption moves the answer most.</p>
+            <p class="b-try"><strong>Try this</strong>Check that the outlined cell equals the base-case price, then see which assumption sits at the top of the tornado.</p>
+            <a class="b-go" href="index.html#sensitivity">Open Sensitivity <span aria-hidden="true">→</span></a>
+          </div>
+        </li>
+        <li class="b-stop reveal">
+          <span class="b-stop-no" aria-hidden="true">04</span>
+          <div class="b-stop-body">
+            <p class="b-stop-k">Tab 4 of 6</p>
+            <h3>Comparables<span>What do similar companies suggest?</span></h3>
+            <p>What similar listed companies and past takeover deals imply about value, using price-to-profit multiples.</p>
+            <p class="b-try"><strong>Try this</strong>Compare the listed peers with the takeover deals. Deals are usually priced higher, because a buyer pays extra for control.</p>
+            <a class="b-go" href="index.html#comps">Open Comparables <span aria-hidden="true">→</span></a>
+          </div>
+        </li>
+        <li class="b-stop reveal">
+          <span class="b-stop-no" aria-hidden="true">05</span>
+          <div class="b-stop-body">
+            <p class="b-stop-k">Tab 5 of 6</p>
+            <h3>Statements<span>Do the accounts hang together?</span></h3>
+            <p>The three core financial statements (income statement, cash flow statement and balance sheet) built from the same forecast, with a check that the balance sheet balances every year.</p>
+            <p class="b-try"><strong>Try this</strong>Change the dividend payout and confirm the balance sheet still balances.</p>
+            <a class="b-go" href="index.html#statements">Open Statements <span aria-hidden="true">→</span></a>
+          </div>
+        </li>
+        <li class="b-stop reveal">
+          <span class="b-stop-no" aria-hidden="true">06</span>
+          <div class="b-stop-body">
+            <p class="b-stop-k">Tab 6 of 6</p>
+            <h3>Memo<span>What would the committee read?</span></h3>
+            <p>A short investment committee note written from the live model.</p>
+            <p class="b-try"><strong>Try this</strong>Switch to Bear or Bull at the top of the page, then reread the memo.</p>
+            <a class="b-go" href="index.html#memo">Open Memo <span aria-hidden="true">→</span></a>
+          </div>
+        </li>
+          </ol>
+        </section>
 
-    <section class="g-sec" id="words" aria-labelledby="h-words">
-      <h2 id="h-words">Key words, in everyday language</h2>
-      <dl class="g-terms">
-        <div><dt>Valuation</dt><dd>An estimate of what a company or one of its shares is worth.</dd></div>
-        <div><dt>DCF (discounted cash flow)</dt><dd>Valuing a company by forecasting the cash it will generate and converting future cash into today&#x27;s money.</dd></div>
-        <div><dt>Free cash flow</dt><dd>Cash the business generates after paying its running costs, taxes and investment.</dd></div>
-        <div><dt>WACC (discount rate)</dt><dd>The yearly return investors and lenders expect. A higher rate makes future cash worth less today.</dd></div>
-        <div><dt>Terminal value</dt><dd>The value of all the cash beyond the five-year forecast, usually a large part of the total.</dd></div>
-        <div><dt>Enterprise vs equity value</dt><dd>Enterprise value is the whole business. Equity value is what is left for shareholders after debt is repaid and cash is added.</dd></div>
-        <div><dt>EBITDA</dt><dd>Operating profit before interest, tax, depreciation and amortisation.</dd></div>
-        <div><dt>Multiple (EV/EBITDA)</dt><dd>Value divided by profit, a quick way to compare companies of different sizes.</dd></div>
-        <div><dt>Comparables</dt><dd>Similar listed companies used as a reference for value.</dd></div>
-        <div><dt>Precedent transactions</dt><dd>Past takeovers of similar companies, and the prices paid.</dd></div>
-        <div><dt>Football field</dt><dd>A chart of value ranges from each method, side by side.</dd></div>
-        <div><dt>Sensitivity analysis</dt><dd>Testing how much the answer changes when an assumption changes.</dd></div>
-        <div><dt>Bear / Base / Bull</dt><dd>Pessimistic, central and optimistic views of the future.</dd></div>
-      </dl>
-    </section>
+        <section class="b-sec" id="checklist" aria-labelledby="h-checklist">
+          <header class="b-sec-h"><span class="b-no" aria-hidden="true">04</span><h2 id="h-checklist">Your exploration checklist</h2></header>
+          <p>Everything worth seeing in Meridian, in the order you will meet it. Tick each item as you go; progress is saved in this browser only and never leaves your device.</p>
+          <div class="b-meter">
+            <p><strong><span data-done>0</span> of 9</strong> explored</p>
+            <i class="b-bar"><i data-bar></i></i>
+            <button type="button" class="b-reset" data-reset>Reset</button>
+          </div>
+          <p class="b-complete" data-complete hidden>You have seen everything Meridian does. The case study explains the decisions behind it.</p>
+          <div class="b-table-wrap reveal">
+          <table class="b-table b-check">
+            <caption>Exploration checklist for Meridian</caption>
+            <thead><tr><th scope="col"><span class="b-sr">Done</span></th><th scope="col">Step</th><th scope="col">Where</th><th scope="col">You will learn</th></tr></thead>
+            <tbody>
+            <tr>
+              <td class="b-cell-check"><input type="checkbox" id="c-football" data-check="football"></td>
+              <th scope="row"><label for="c-football">Read the football field</label></th>
+              <td data-label="Where"><a class="b-tab" href="index.html#summary">Summary</a></td>
+              <td data-label="You will learn">Where five valuation methods agree, and where they do not.</td>
+            </tr>
+            <tr>
+              <td class="b-cell-check"><input type="checkbox" id="c-flag" data-check="flag"></td>
+              <th scope="row"><label for="c-flag">Read the first review point</label></th>
+              <td data-label="Where"><a class="b-tab" href="index.html#summary">Summary</a></td>
+              <td data-label="You will learn">How the model flags its own inconsistencies.</td>
+            </tr>
+            <tr>
+              <td class="b-cell-check"><input type="checkbox" id="c-company" data-check="company"></td>
+              <th scope="row"><label for="c-company">Switch to Saffron or Nexa</label></th>
+              <td data-label="Where"><a class="b-tab" href="index.html#summary">Summary</a></td>
+              <td data-label="You will learn">How the same method values different businesses.</td>
+            </tr>
+            <tr>
+              <td class="b-cell-check"><input type="checkbox" id="c-wacc" data-check="wacc"></td>
+              <th scope="row"><label for="c-wacc">Raise WACC by one point</label></th>
+              <td data-label="Where"><a class="b-tab" href="index.html#model">Model</a></td>
+              <td data-label="You will learn">Why the discount rate matters so much to the answer.</td>
+            </tr>
+            <tr>
+              <td class="b-cell-check"><input type="checkbox" id="c-grid" data-check="grid"></td>
+              <th scope="row"><label for="c-grid">Check the outlined grid cell</label></th>
+              <td data-label="Where"><a class="b-tab" href="index.html#sensitivity">Sensitivity</a></td>
+              <td data-label="You will learn">That the sensitivity table is centred on the base case.</td>
+            </tr>
+            <tr>
+              <td class="b-cell-check"><input type="checkbox" id="c-tornado" data-check="tornado"></td>
+              <th scope="row"><label for="c-tornado">Find the top tornado driver</label></th>
+              <td data-label="Where"><a class="b-tab" href="index.html#sensitivity">Sensitivity</a></td>
+              <td data-label="You will learn">Which single assumption moves value the most.</td>
+            </tr>
+            <tr>
+              <td class="b-cell-check"><input type="checkbox" id="c-control" data-check="control"></td>
+              <th scope="row"><label for="c-control">Compare peers with deals</label></th>
+              <td data-label="Where"><a class="b-tab" href="index.html#comps">Comparables</a></td>
+              <td data-label="You will learn">Why takeover prices include a control premium.</td>
+            </tr>
+            <tr>
+              <td class="b-cell-check"><input type="checkbox" id="c-balance" data-check="balance"></td>
+              <th scope="row"><label for="c-balance">Change the payout, check the balance sheet</label></th>
+              <td data-label="Where"><a class="b-tab" href="index.html#statements">Statements</a></td>
+              <td data-label="You will learn">That the three statements stay linked and balanced.</td>
+            </tr>
+            <tr>
+              <td class="b-cell-check"><input type="checkbox" id="c-memo" data-check="memo"></td>
+              <th scope="row"><label for="c-memo">Switch Bear or Bull and reread the memo</label></th>
+              <td data-label="Where"><a class="b-tab" href="index.html#memo">Memo</a></td>
+              <td data-label="You will learn">How the committee memo is written from the live model.</td>
+            </tr>
+            </tbody>
+          </table>
+          </div>
+        </section>
 
-    <section class="g-sec" id="scope" aria-labelledby="h-scope">
-      <h2 id="h-scope">What this project shows, and what it does not</h2>
-      <div class="g-two">
-        <div class="g-card"><h3>What it shows</h3><p>Forecast-driven valuation, the links between the three financial statements, sensitivity analysis and the presentation conventions of banking work. Relevant to valuation, financial modelling, FP&amp;A and investment-banking analyst roles.</p></div>
-        <div class="g-card"><h3>What it is not</h3><p>It is not a recommendation to buy or sell anything. The companies, peers and deals are fictional, and no real market data is used.</p></div>
+        <section class="b-sec" id="build" aria-labelledby="h-build">
+          <header class="b-sec-h"><span class="b-no" aria-hidden="true">05</span><h2 id="h-build">Under the hood</h2></header>
+          <p>Meridian is a static site: every calculation runs in your browser from one file of pure, tested functions. Nothing is sent to a server, and there is nothing to install.</p>
+          <ul class="b-stats reveal">
+            <li><strong data-tests>20</strong><span>automated tests, run before every deployment</span></li>
+            <li><strong>6</strong><span>working views, each linked to the same engine</span></li>
+            <li><strong>0</strong><span>runtime dependencies or third-party requests</span></li>
+            <li><strong>8/10</strong><span>capabilities in scope, the rest stated openly</span></li>
+          </ul>
+          <ul class="b-chips" aria-label="Technology"><li>Vanilla JavaScript (ES modules)</li><li>Hand-built SVG charts</li><li>node:test</li><li>Self-hosted fonts</li><li>Vercel static hosting</li><li>Excel (INDEX/MATCH, SUMPRODUCT, named ranges)</li><li>Python (openpyxl)</li></ul>
+          <div class="b-table-wrap reveal">
+          <table class="b-table b-caps">
+            <caption>Capability checklist for Meridian</caption>
+            <thead><tr><th scope="col">Capability</th><th scope="col">Status</th><th scope="col">Evidence</th></tr></thead>
+            <tbody>
+            <tr>
+              <th scope="row">Five-year unlevered DCF, perpetual-growth and exit-multiple terminal values</th>
+              <td data-label="Status"><span class="b-pill yes">✓ Included</span></td>
+              <td data-label="Evidence">src/engine.js &middot; terminal values round-trip</td>
+            </tr>
+            <tr>
+              <th scope="row">CAPM WACC build</th>
+              <td data-label="Status"><span class="b-pill yes">✓ Included</span></td>
+              <td data-label="Evidence">lands within 0.3 pts of each company&#x27;s WACC</td>
+            </tr>
+            <tr>
+              <th scope="row">Trading comparables and precedent transactions</th>
+              <td data-label="Status"><span class="b-pill yes">✓ Included</span></td>
+              <td data-label="Evidence">Comparables tab</td>
+            </tr>
+            <tr>
+              <th scope="row">Bear / Base / Bull scenarios and mid-year discounting</th>
+              <td data-label="Status"><span class="b-pill yes">✓ Included</span></td>
+              <td data-label="Evidence">bear &lt; base &lt; bull for every company</td>
+            </tr>
+            <tr>
+              <th scope="row">Two-way sensitivity grids and seven-driver tornado</th>
+              <td data-label="Status"><span class="b-pill yes">✓ Included</span></td>
+              <td data-label="Evidence">grids centred on base; bars straddle base</td>
+            </tr>
+            <tr>
+              <th scope="row">Linked three statements that balance every year</th>
+              <td data-label="Status"><span class="b-pill yes">✓ Included</span></td>
+              <td data-label="Evidence">balance and cash reconciliation tests</td>
+            </tr>
+            <tr>
+              <th scope="row">Generated investment-committee memo and CSV export</th>
+              <td data-label="Status"><span class="b-pill yes">✓ Included</span></td>
+              <td data-label="Evidence">Memo and Model tabs</td>
+            </tr>
+            <tr>
+              <th scope="row">Live Excel model: 776 formulas, dropdown cases, football-field chart</th>
+              <td data-label="Status"><span class="b-pill yes">✓ Included</span></td>
+              <td data-label="Evidence">excel/ &middot; 1,998 values match this app in 18 cases</td>
+            </tr>
+            <tr>
+              <th scope="row">Real market data, observed betas or audited financials</th>
+              <td data-label="Status"><span class="b-pill no">— Not included</span></td>
+              <td data-label="Evidence">Companies are fictional</td>
+            </tr>
+            <tr>
+              <th scope="row">A recommendation or fairness opinion</th>
+              <td data-label="Status"><span class="b-pill no">— Not included</span></td>
+              <td data-label="Evidence">Out of scope by design</td>
+            </tr>
+            </tbody>
+          </table>
+          </div>
+        </section>
+
+        <section class="b-sec" id="words" aria-labelledby="h-words">
+          <header class="b-sec-h"><span class="b-no" aria-hidden="true">06</span><h2 id="h-words">Key words, in everyday language</h2></header>
+          <label class="b-filter"><span class="b-sr">Filter key words</span><input type="search" data-filter placeholder="Filter 13 terms…" autocomplete="off"></label>
+          <dl class="b-terms"><div><dt>Valuation</dt><dd>An estimate of what a company or one of its shares is worth.</dd></div><div><dt>DCF (discounted cash flow)</dt><dd>Valuing a company by forecasting the cash it will generate and converting future cash into today&#x27;s money.</dd></div><div><dt>Free cash flow</dt><dd>Cash the business generates after paying its running costs, taxes and investment.</dd></div><div><dt>WACC (discount rate)</dt><dd>The yearly return investors and lenders expect. A higher rate makes future cash worth less today.</dd></div><div><dt>Terminal value</dt><dd>The value of all the cash beyond the five-year forecast, usually a large part of the total.</dd></div><div><dt>Enterprise vs equity value</dt><dd>Enterprise value is the whole business. Equity value is what is left for shareholders after debt is repaid and cash is added.</dd></div><div><dt>EBITDA</dt><dd>Operating profit before interest, tax, depreciation and amortisation.</dd></div><div><dt>Multiple (EV/EBITDA)</dt><dd>Value divided by profit, a quick way to compare companies of different sizes.</dd></div><div><dt>Comparables</dt><dd>Similar listed companies used as a reference for value.</dd></div><div><dt>Precedent transactions</dt><dd>Past takeovers of similar companies, and the prices paid.</dd></div><div><dt>Football field</dt><dd>A chart of value ranges from each method, side by side.</dd></div><div><dt>Sensitivity analysis</dt><dd>Testing how much the answer changes when an assumption changes.</dd></div><div><dt>Bear / Base / Bull</dt><dd>Pessimistic, central and optimistic views of the future.</dd></div></dl>
+          <p class="b-empty" data-empty hidden>No key words match <q></q>. Try a shorter word.</p>
+        </section>
+
+        <section class="b-sec" id="faq" aria-labelledby="h-faq">
+          <header class="b-sec-h"><span class="b-no" aria-hidden="true">07</span><h2 id="h-faq">Questions people ask</h2></header>
+          <div class="b-faq"><details class="b-q"><summary>Are these real companies?</summary><p>No. The three companies, their peers and the takeover deals are fictional, and no real market data is used. Nothing here is a recommendation to buy or sell.</p></details><details class="b-q"><summary>Can I change the numbers?</summary><p>Yes. Blue figures on the Model tab are inputs you can edit; everything else, from the football field to the memo, recalculates immediately.</p></details><details class="b-q"><summary>Why are there several values instead of one?</summary><p>Each method has blind spots. Showing them side by side, with ranges, is how analysts show both an answer and how confident to be in it.</p></details><details class="b-q"><summary>Does it work on a phone?</summary><p>Yes. The layout adapts to small screens, and the memo and forecast can be downloaded from any device.</p></details><details class="b-q"><summary>How do I know the maths is right?</summary><p>The calculations live in one file of pure functions with an automated test suite that runs before every deployment. If a test fails, the site does not publish.</p></details><details class="b-q"><summary>Who is it for?</summary><p>Anyone curious about how companies are valued, and recruiters or hiring managers looking at valuation, financial modelling, FP&amp;A and investment-banking analyst work.</p></details></div>
+        </section>
+
+        <section class="b-sec" id="scope" aria-labelledby="h-scope">
+          <header class="b-sec-h"><span class="b-no" aria-hidden="true">08</span><h2 id="h-scope">What this project shows, and what it does not</h2></header>
+          <div class="b-two">
+            <div class="b-card"><h3>What it shows</h3><p>Forecast-driven valuation, the links between the three financial statements, sensitivity analysis and the presentation conventions of banking work. Relevant to valuation, financial modelling, FP&amp;A and investment-banking analyst roles.</p></div>
+            <div class="b-card b-card-muted"><h3>What it is not</h3><p>It is not a recommendation to buy or sell anything. The companies, peers and deals are fictional, and no real market data is used.</p></div>
+          </div>
+          <div class="b-cta">
+            <p>Ready to explore?</p>
+            <div><a href="index.html">Open Meridian</a><a class="b-ghost" href="https://github.com/itsNishuu/meridian-investment-valuation/blob/main/CASE_STUDY.md">Read the case study</a></div>
+          </div>
+        </section>
       </div>
-      <div class="g-cta">
-        <p>Ready to explore?</p>
-        <div><a href="index.html">Open Meridian</a><a class="g-ghost" href="https://github.com/itsNishuu/meridian-investment-valuation/blob/main/CASE_STUDY.md">Read the case study</a></div>
-      </div>
-    </section>
+    </div>
   </main>
-  <footer class="g-foot">
+  <footer class="b-foot">
     <p>Meridian is an independent case study by Nishant Khanke. All people, companies and figures are fictional. Nothing here is financial advice.</p>
   </footer>
 </body>
