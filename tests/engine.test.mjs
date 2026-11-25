@@ -104,3 +104,10 @@ test('analysis: football field ranges contain their mid-points; memo and CSV exp
   assert.throws(() => calculateDcf({ ...COMPANIES[2], wacc: 0.06, terminalGrowth: 0.06 }), /below WACC/);
   assert.throws(() => calculateDcf({ ...COMPANIES[2], wacc: NaN }), /finite number/);
 });
+
+test('the exit multiple is the peer median rounded half-up, as Excel would round it', () => {
+  const hps = COMPANIES.find((c) => c.id === 'HPS');
+  assert.equal(median(hps.peerMultiples), 10.45);
+  assert.equal(analyzeCompany(hps).exitMultiple, 10.5);
+  assert.equal(analyzeCompany(COMPANIES.find((c) => c.id === 'NMC')).exitMultiple, 11.9);
+});

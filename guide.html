@@ -213,12 +213,12 @@
           <header class="b-sec-h"><span class="b-no" aria-hidden="true">05</span><h2 id="h-build">Under the hood</h2></header>
           <p>Meridian is a static site: every calculation runs in your browser from one file of pure, tested functions. Nothing is sent to a server, and there is nothing to install.</p>
           <ul class="b-stats reveal">
-            <li><strong data-tests>19</strong><span>automated tests, run before every deployment</span></li>
+            <li><strong data-tests>20</strong><span>automated tests, run before every deployment</span></li>
             <li><strong>6</strong><span>working views, each linked to the same engine</span></li>
             <li><strong>0</strong><span>runtime dependencies or third-party requests</span></li>
-            <li><strong>7/9</strong><span>capabilities in scope, the rest stated openly</span></li>
+            <li><strong>8/10</strong><span>capabilities in scope, the rest stated openly</span></li>
           </ul>
-          <ul class="b-chips" aria-label="Technology"><li>Vanilla JavaScript (ES modules)</li><li>Hand-built SVG charts</li><li>node:test</li><li>Self-hosted fonts</li><li>Vercel static hosting</li></ul>
+          <ul class="b-chips" aria-label="Technology"><li>Vanilla JavaScript (ES modules)</li><li>Hand-built SVG charts</li><li>node:test</li><li>Self-hosted fonts</li><li>Vercel static hosting</li><li>Excel (INDEX/MATCH, SUMPRODUCT, named ranges)</li><li>Python (openpyxl)</li></ul>
           <div class="b-table-wrap reveal">
           <table class="b-table b-caps">
             <caption>Capability checklist for Meridian</caption>
@@ -258,6 +258,11 @@
               <th scope="row">Generated investment-committee memo and CSV export</th>
               <td data-label="Status"><span class="b-pill yes">✓ Included</span></td>
               <td data-label="Evidence">Memo and Model tabs</td>
+            </tr>
+            <tr>
+              <th scope="row">Live Excel model: 776 formulas, dropdown cases, football-field chart</th>
+              <td data-label="Status"><span class="b-pill yes">✓ Included</span></td>
+              <td data-label="Evidence">excel/ &middot; 1,998 values match this app in 18 cases</td>
             </tr>
             <tr>
               <th scope="row">Real market data, observed betas or audited financials</th>

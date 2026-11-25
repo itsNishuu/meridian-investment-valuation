@@ -69,7 +69,8 @@ export const SCENARIOS = {
   bull: { name: 'Bull', growth: 0.03, margin: 0.02, wacc: -0.005, terminalGrowth: 0.005 },
 };
 
-const round = (n, d = 2) => Number(n.toFixed(d));
+/** Round half away from zero in decimal terms, so 10.45 -> 10.5 (toFixed alone gives 10.4 from binary error). */
+const round = (n, d = 2) => Math.sign(n) * Math.round(Number(`${Math.abs(n)}e${d}`)) / 10 ** d;
 export function median(arr) {
   const s = [...arr].sort((a, b) => a - b), m = Math.floor(s.length / 2);
   return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2;
