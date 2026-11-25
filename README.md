@@ -2,7 +2,7 @@
 
 **Live demo:** https://meridian-investment-valuation.vercel.app
 
-**New to the subject?** Start with the [plain-English guide](https://meridian-investment-valuation.vercel.app/guide.html) ([source](guide.html)): what Meridian does, a tab-by-tab tour and a glossary, written for readers with no finance background.
+**New to the subject?** Start with the [plain-English guide](https://meridian-investment-valuation.vercel.app/guide.html) ([source](guide.html)): live figures from the model, a tab-by-tab tour, an exploration checklist, a capability checklist, common questions and a glossary, written for readers with no finance background.
 
 An equity valuation workbench laid out like a bank pitch book. It values three fictional Indian mid-caps with a five-year unlevered DCF, trading comparables and precedent transactions, then shows how sure the answer is.
 
